@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { mokeGet } from "../http/api"
 
 const count = ref(0)
+
+const getUrls = async() =>{
+    const res = await mokeGet({})
+    console.log(res,2)
+}
+onMounted(() => {//生命周期
+    getUrls()
+})
 </script>
 
 <template>
